@@ -19,4 +19,4 @@ steps:
     npm install
     npm test
     npm start
-  displayName: 'npm install test and start'
+  displayName: 'npm install and build'

@@ -348,12 +348,12 @@ describe('Test unitaire (simulation mauvaise réponse)', () => {
             .request('http://localhost:8080')
             .delete('/book/55b7d315-1a5f-4b13-a665-c382a6c71756')
             .end((err, res) => {
-                if (err) console.log(err);
-                expect(res).to.have.status(400);
-                expect(res.body).to.be.a('object');
-                expect(res.body.message).to.be.a('string');
-                expect(res.body.message).to.equal('book does not exist');
-                done();
+                if (err) console.log(err)
+                expect(res).to.have.status(400)
+                expect(res.body).to.be.a('object')
+                expect(res.body.message).to.be.a('string')
+                expect(res.body.message).to.equal('book does not exist')
+                done()
             });
     })
 })

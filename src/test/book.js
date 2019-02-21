@@ -11,18 +11,17 @@ import resetDatabase from '../utils/resetDatabase';
 chai.use(chaiHttp);
 chai.use(chaiNock);
 chai.use(chaiAsPromised);
-
 // tout les packages et fonction nescessaire au test sont importé ici, bon courage
 
 // fait les Tests d'integration en premier
 describe('Test intégration (Empty database)', () => {
     let emptyBooks = {
-        books : []
+        books: []
     }
     beforeEach(() => {
-        resetDatabase("../data/books.json",emptyBooks);
+        resetDatabase(path.normalize(`${__dirname}/../data/books.json`), emptyBooks);
     })
-    it('toto', () => {
+    it('toto', done => {
         chai
             .request(server)
             .get('/book')
@@ -31,7 +30,7 @@ describe('Test intégration (Empty database)', () => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.a('object');
                 expect(res.body.books).to.be.a('array');
-                expect(res.body.books.length).to.equal(1);
+                expect(res.body.books.length).to.equal(0);
                 done();
             });
     })

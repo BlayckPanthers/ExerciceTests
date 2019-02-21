@@ -3,16 +3,16 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import book from './routes/books';
-import config from 'config';
+// import config from 'config';
 
 let port = 8080;
 let app = express();
 
 //don't show the log when it is test
-if (config.util.getEnv('NODE_ENV') !== 'test') {
-  //use morgan to log at command line
-  app.use(morgan('combined')); //'combined' outputs the Apache style LOGs
-}
+// if (config.util.getEnv('NODE_ENV') !== 'test') {
+//use morgan to log at command line
+// app.use(morgan('combined')); //'combined' outputs the Apache style LOGs
+// }
 
 //parse application/json and look for raw text
 app.use(bodyParser.json());

@@ -122,6 +122,16 @@ describe('Test intégration (Mocked Database)', () => {
 
 describe('Test unitaire (simulation ok)', () => {
 
+    beforeEach(()=>{
+        nock.cleanAll()
+    })
+    it('should send http status 200 and send an array',done=>{
+        const scope = nock("http://localhost:8080")
+        .get('/book')
+        .reply(200,[])
+        console.log(scope);
+        done();
+    })
 })
 
 describe('Test unitaire (simulation mauvaise réponse)', () => {
